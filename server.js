@@ -1,13 +1,24 @@
 const express = require('express');
 const connectDB = require('./config/db');
 
+
 const app = express();
+
+// Init Middleware (to make req.body to work in User.js)
+app.use(express.json({extended :false }));
 
 // Connecting to the Database
 connectDB();
 
 app.get('/',(req,res) => res.send('API running'));
 //"re.send" sends data to the browser
+
+//Define Routes
+app.use('/api/users', require('./config/routes/api/users')); 
+//here, "/api/users" is the endpoint that pertains to the mentioned user's files 
+app.use('/api/auth', require('./config/routes/api/auth')); 
+app.use('/api/profile', require('./config/routes/api/profile')); 
+app.use('/api/posts', require('./config/routes/api/posts')); 
 
 const PORT = process.env.PORT || 4000; 
 
