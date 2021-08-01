@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://Ashwattha:3F8T58aGUP7ZjiHw@collegecollab.mumfk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://Ashwattha:3F8T58aGUP7ZjiHw@collegecollab.mumfk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "jwtSecret": "myTYS1project"
 }
