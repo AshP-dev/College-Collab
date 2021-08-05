@@ -1,4 +1,5 @@
 const express = require("express");
+
 const router = express.Router();
 const auth = require("../../../middleware/auth");
 const Profile = require("../../models/Profile");
@@ -74,36 +75,59 @@ router.post(
     }
 
     //Build social object
-    profileFields.social = {};
-    if (youtube) profileFields.youtube = youtube;
-    if (twitter) profileFields.twitter = twitter;
-    if (facebook) profileFields.facebook = facebook;
-    if (instagram) profileFields.instagram = instagram;
-    if (linkedin) profileFields.linkedin = linkedin;
+    const socialFields = { youtube, twitter, instagram, linkedin, facebook };
+
+    profileFields.social = socialFields;
 
     try {
-      let profile = await Profile.findOne({ user: req.user.id });
-
-      if (Profile) {
-        //update profile
-        profile = await Profile.findOneAndUpdate(
-          { user: req.user.id },
-          { $set: profileFields },
-          { new: true }
-        );
-
-        return res.json(profile);
-      } else {
-        //create profile
-        profile = new Profile(profileFields);
-        await profile.save();
-        res.json(profile);
-      }
+      // Using upsert option (creates new doc if no match is found):
+      let profile = await Profile.findOneAndUpdate(
+        { user: req.user.id },
+        { $set: profileFields },
+        { new: true, upsert: true }
+      );
+      res.json(profile);
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server Error");
     }
   }
 );
+
+//@route  GET api/profile
+//@desc   Get all profiles
+//@access Public
+
+router.get("/", async (req, res) => {
+  try {
+    const profiles = await Profile.find().populate("user", ["name", "avatar"]);
+    res.json(profiles);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+//@route  GET api/profile/user/:user_id
+//@desc   Get profile by user ID
+//@access Public
+
+router.get("/user/:user_id", async ({ params: { user_id } }, res) => {
+  try {
+    const profile = await Profile.findOne({
+      user: user_id,
+    }).populate("user", ["name", "avatar"]);
+
+    if (!profile)
+      return res.status(400).json({ msg: "There is no profile for this user" });
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind == "ObjectId") {
+      return res.status(400).json({ msg: "There is no profile for this user" });
+    }
+    res.status(500).send("Server Error");
+  }
+});
 
 module.exports = router;
