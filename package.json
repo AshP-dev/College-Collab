@@ -5,12 +5,15 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
-    "server": "nodemon server"
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Ashwattha Phatak",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "brew": "0.0.8",
     "config": "^3.3.6",
     "express": "^4.17.1",
     "express-validator": "^6.12.1",
@@ -20,9 +23,12 @@
     "mongodb": "^4.1.0",
     "mongoose": "^5.13.5",
     "node": "^16.6.0",
+    "npm": "^7.23.0",
+    "npx": "^10.2.2",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "yarn": "^1.22.11"
   },
   "devDependencies": {
     "concurrently": "^6.2.0",
