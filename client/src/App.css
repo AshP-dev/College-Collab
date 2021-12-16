@@ -150,10 +150,10 @@ img {
 
 .alert {
   padding: 0.8rem;
-  margin: 1rem 0;
+  margin: 4.5rem 0;
   opacity: 0.9;
   background: var(--light-color);
-  color: #333;
+  color: rgb(243, 243, 243);
 }
 
 .btn-primary,
@@ -185,7 +185,7 @@ img {
 .badge-danger,
 .alert-danger {
   background: var(--danger-color);
-  color: #fff;
+  color: rgb(255, 255, 255);
 }
 
 .btn-success,
@@ -193,7 +193,7 @@ img {
 .badge-success,
 .alert-success {
   background: var(--success-color);
-  color: #fff;
+  color: rgb(34, 187, 20);
 }
 
 .btn-white,

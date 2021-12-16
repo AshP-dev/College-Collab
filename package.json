@@ -16,22 +16,22 @@
     "brew": "0.0.8",
     "config": "^3.3.6",
     "express": "^4.17.1",
-    "express-validator": "^6.12.1",
-    "gravatar": "^1.8.1",
+    "express-validator": "^6.13.0",
+    "gravatar": "^1.8.2",
     "jsonwebtoken": "^8.5.1",
     "mongo": "^0.1.0",
-    "mongodb": "^4.1.0",
-    "mongoose": "^5.13.5",
-    "node": "^16.6.0",
-    "npm": "^7.23.0",
+    "mongodb": "^4.2.0",
+    "mongoose": "^5.13.13",
+    "node": "^16.13.0",
+    "npm": "^7.24.2",
     "npx": "^10.2.2",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "request": "^2.88.2",
-    "yarn": "^1.22.11"
+    "yarn": "^1.22.17"
   },
   "devDependencies": {
-    "concurrently": "^6.2.0",
-    "nodemon": "^2.0.12"
+    "concurrently": "^6.4.0",
+    "nodemon": "^2.0.15"
   }
 }
