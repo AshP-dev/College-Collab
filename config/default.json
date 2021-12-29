@@ -1,6 +1,6 @@
 {
-    "mongoURI": "mongodb+srv://Ashwattha:3F8T58aGUP7ZjiHw@collegecollab.mumfk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    "jwtSecret": "myTYS1project",
-    "githubClientId": "0b0f9b4f90895925c1d4",
-    "githubSecret": "e73d7f5d998e3dcac2a885615a053908fef25372"
+  "mongoURI": "mongodb+srv://Ashwattha:3F8T58aGUP7ZjiHw@collegecollab.mumfk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "jwtSecret": "myTYS1project",
+  "githubClientId": "0b0f9b4f90895925c1d4",
+  "githubSecret": "e73d7f5d998e3dcac2a885615a053908fef25372"
 }
