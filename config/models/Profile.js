@@ -57,7 +57,6 @@ const ProfileSchema = new mongoose.Schema({
       },
     },
   ],
-
   education: [
     {
       school: {
@@ -88,7 +87,6 @@ const ProfileSchema = new mongoose.Schema({
       },
     },
   ],
-
   social: {
     youtube: {
       type: String,
@@ -99,7 +97,7 @@ const ProfileSchema = new mongoose.Schema({
     facebook: {
       type: String,
     },
-    linkedin: {
+    linkden: {
       type: String,
     },
     instagram: {
