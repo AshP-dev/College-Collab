@@ -10,7 +10,7 @@ const CommentItem = ({
   comment: { _id, text, name, avatar, user, date },
   auth,
   deleteComment,
-}) => {
+}) => (
   <div class='post bg-white p-1 my-1'>
     <div>
       <Link to={`/profile/${user}`}>
@@ -33,11 +33,11 @@ const CommentItem = ({
         </button>
       )}
     </div>
-  </div>;
-};
+  </div>
+);
 
 CommentItem.propTypes = {
-  postId: PropTypes.number.isRequired,
+  postId: PropTypes.string.isRequired,
   comment: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
   deleteComment: PropTypes.func.isRequired,
